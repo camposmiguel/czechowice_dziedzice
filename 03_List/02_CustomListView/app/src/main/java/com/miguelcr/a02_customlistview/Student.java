@@ -8,11 +8,13 @@ public class Student {
     private String name;
     private int age;
     private String sex;
+    private String photo;
 
-    public Student(String name, int age, String sex) {
+    public Student(String name, int age, String sex, String photo) {
         this.name = name;
         this.age = age;
         this.sex = sex;
+        this.photo = photo;
     }
 
     public String getName() {
@@ -37,5 +39,13 @@ public class Student {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

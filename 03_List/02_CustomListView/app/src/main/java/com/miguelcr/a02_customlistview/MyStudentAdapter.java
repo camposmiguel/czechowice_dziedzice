@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 /**
@@ -47,11 +49,14 @@ public class MyStudentAdapter extends ArrayAdapter<Student> {
 
         textViewName.setText(name);
         textViewAge.setText(String.valueOf(age));
-        if(sex.equals("f")) {
+
+        /*if(sex.equals("f")) {
             imageViewAvatar.setImageResource(R.drawable.ic_girl);
         } else {
             imageViewAvatar.setImageResource(R.drawable.ic_boy);
-        }
+        }*/
+
+        Picasso.with(ctx).load(current.getPhoto()).into(imageViewAvatar);
 
         return v;
     }

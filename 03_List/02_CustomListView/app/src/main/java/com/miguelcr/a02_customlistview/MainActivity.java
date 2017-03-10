@@ -20,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
         lista = (ListView) findViewById(R.id.list_view);
 
         studentList = new ArrayList<>();
-        studentList.add(new Student("Michal",19,"m"));
-        studentList.add(new Student("Piotrek",18,"m"));
-        studentList.add(new Student("Wojtek",18,"m"));
-        studentList.add(new Student("Patryk",18,"m"));
-        studentList.add(new Student("Alicia",18,"m"));
-        studentList.add(new Student("Carolina",18,"m"));
+        studentList.add(new Student("Michal",19,"m","https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"));
+        studentList.add(new Student("Piotrek",18,"m","https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"));
+        studentList.add(new Student("Wojtek",18,"m","https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"));
+        studentList.add(new Student("Patryk",18,"m","https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"));
+        studentList.add(new Student("Alicia",18,"f","https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"));
+        studentList.add(new Student("Carolina",18,"f","https://s3.amazonaws.com/uifaces/faces/twitter/jina/128.jpg"));
 
         // Adapter
         MyStudentAdapter adapter = new MyStudentAdapter(
