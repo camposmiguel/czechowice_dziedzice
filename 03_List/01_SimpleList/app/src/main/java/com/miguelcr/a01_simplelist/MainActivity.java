@@ -1,13 +1,19 @@
 package com.miguelcr.a01_simplelist;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     ListView lista;
     // String[] students = {"Mat","Carolina","Patryk","Dawid"};
     List<String> students;
@@ -32,15 +38,39 @@ public class MainActivity extends AppCompatActivity {
         students.add("Michal III");
         students.add("Wiktoria");
         students.add("Weronika");
-        students.add("Patryk");
+        students.add("Patryk II");
         students.add("Kuba");
         students.add("Sebastian");
         students.add("Adrian");
         students.add("Wojtek");
         students.add("Piotrek");
-        students.add("Kuba");
+        students.add("Patryk III");
+        students.add("Michal IV");
+        students.add("Dawid");
+        students.add("Patryk IV");
 
+        // 3. Create the adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this, // context
+                android.R.layout.simple_list_item_1, // template
+                students
+        );
 
+        // 4. Connect ListView lista + Adapter
+        lista.setAdapter(adapter);
 
+        lista.setOnItemClickListener(this);
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        String studentName = students.get(i);
+        Toast.makeText(this, "Clicked "+studentName, Toast.LENGTH_LONG).show();
+
+        //view.animate().rotationBy(360).setDuration(2000).start();
+
+        TextView t = (TextView) view.findViewById(android.R.id.text1);
+        t.setTextColor(ContextCompat.getColor(this,R.color.colorAccent));
     }
 }
