@@ -19,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     ListView lista;
     // String[] students = {"Mat","Carolina","Patryk","Dawid"};
-    List<String> students;
+    List<Student> students;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,30 +32,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         // 2. List of elements (dynamic list)
         students = new ArrayList<>();
-        students.add("Alicia");
-        students.add("Carolina");
-        students.add("Patryk I");
-        students.add("Michal I");
-        students.add("Mat");
-        students.add("Michal II");
-        students.add("Michal III");
-        students.add("Wiktoria");
-        students.add("Weronika");
-        students.add("Patryk II");
-        students.add("Kuba");
-        students.add("Sebastian");
-        students.add("Adrian");
-        students.add("Wojtek");
-        students.add("Piotrek");
-        students.add("Patryk III");
-        students.add("Michal IV");
-        students.add("Dawid");
-        students.add("Patryk IV");
 
         // 3. Create the adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        MyStudentAdapter adapter = new MyStudentAdapter(
                 this, // context
-                android.R.layout.simple_list_item_1, // template
+                R.layout.student_item, // template
                 students
         );
 
@@ -68,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        String studentName = students.get(i);
+        String studentName = students.get(i).getName();
         Toast.makeText(this, "Clicked "+studentName, Toast.LENGTH_LONG).show();
 
         //view.animate().rotationBy(360).setDuration(2000).start();
